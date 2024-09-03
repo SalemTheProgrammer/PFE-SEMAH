@@ -1,0 +1,140 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Light gray background */
+  }
+  
+  .container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Set a maximum width for better responsiveness */
+    width: 100%;
+    margin: 20px;
+  }
+  
+  /* Headings */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+  }
+  
+  /* Form Inputs */
+  input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #c77210;
+    outline: none;
+  }
+  
+  /* Password Visibility Toggle */
+  .password-container {
+    position: relative;
+  }
+  
+  .password-container input {
+    padding-right: 40px; /* Ensure space for the toggle button */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #c77210;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .toggle-password:hover {
+    color: #a65e08;
+  }
+  
+  .toggle-password i {
+    margin: 0;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #c77210;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #a65e08;
+  }
+  
+  /* Error Messages */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  /* Register Form Specific Styles */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .button-group button {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .button-group button:last-child {
+    margin-right: 0;
+  }
+  
+  .button-group .active {
+    background-color: #c77210;
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    input, button {
+      font-size: 14px;
+    }
+  
+    .toggle-password {
+      font-size: 18px;
+    }
+  }
+  

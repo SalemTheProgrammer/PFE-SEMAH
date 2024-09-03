@@ -1,0 +1,167 @@
+/* src/components/BookNow.css */
+
+.book-now {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.book-now img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.book-now img:hover {
+    transform: scale(1.05);
+}
+
+.book-now h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.book-now ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.book-now li {
+    display: flex;
+    align-items: center; /* Changed to center for better alignment */
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0; /* Increased padding for better spacing */
+    margin-bottom: 15px;
+}
+
+.book-now li:last-child {
+    border-bottom: none;
+}
+
+.book-now .hairdresser-details {
+    flex: 1;
+}
+
+.book-now .hairdresser-details h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.book-now .hairdresser-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.book-now .hairdresser-details .book-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.book-now .hairdresser-details .book-button:hover {
+    background-color: #0056b3;
+}
+
+.availability {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    border-radius: 8px;
+    /* Added transition for smooth opening/closing */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.availability ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.availability li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.availability .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.availability .close-button:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-now img {
+        max-width: 80px;
+        margin-right: 10px;
+    }
+
+    .book-now h2 {
+        font-size: 1.5rem;
+    }
+
+    .book-now li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .availability {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-now img {
+        max-width: 60px;
+    }
+
+    .book-now h2 {
+        font-size: 1.2rem;
+    }
+
+    .book-now .hairdresser-details .book-button {
+        padding: 8px 12px;
+    }
+
+    .availability {
+        width: 100%;
+        height: auto;
+    }
+}
