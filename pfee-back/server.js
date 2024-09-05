@@ -291,6 +291,7 @@ app.get("/appointments/:hairdresserId", async (req, res) => {
 app.post("/approve-appointment", async (req, res) => {
   const { hairdresserId, appointmentId } = req.body;
 
+
   try {
     // Find the appointment by hairdresserId and appointmentId
     const appointment = await Appointment.findOne({ _id: appointmentId, hairdresserId: hairdresserId });
@@ -348,18 +349,34 @@ app.delete('/appointments/:id', async (req, res) => {
 
 
 
-// Update an appointment by ID
 app.put('/appointments/:id', async (req, res) => {
   try {
+    // Update the appointment by ID
     const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, { new: true }).lean();
+
+    // If appointment is not found, return a 404 response
     if (!appointment) {
       return res.status(404).json({ error: 'Appointment not found' });
     }
+
+    // Find the customer and send an email notification if necessary
+    const customer = await User.findById(appointment.customerId);
+    console.log('Customer:', customer);
+    if (customer) {
+      await sendAppointmentApprovedEmail(customer.email, appointment);
+      console.log('Appointment updated and email sent to:', customer.email);
+    }
+
+    // Return the updated appointment
     res.json(appointment);
+
   } catch (err) {
+    // Log the error and send a 500 response
+    console.error('Failed to update appointment:', err);
     res.status(500).json({ error: 'Failed to update appointment', details: err.message });
   }
 });
+
 
 
 app.get('/appointments/:id', async (req, res) => {

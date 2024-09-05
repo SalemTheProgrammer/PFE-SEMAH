@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api'; // Adjust the path if necessary
-import './BookNow.css';
 
 const BookNow = ({ user }) => {
   const [hairdressers, setHairdressers] = useState([]);
@@ -22,7 +21,7 @@ const BookNow = ({ user }) => {
     fetchHairdressers();
   }, []);
 
-  const handleBookNow = async (hairdresser) => {
+  const handleBookNow = (hairdresser) => {
     setSelectedHairdresser(hairdresser);
     setSelectedDate(''); // Reset selected date
     setSelectedHour(''); // Reset selected hour
@@ -56,38 +55,47 @@ const BookNow = ({ user }) => {
   };
 
   return (
-    <div className="book-now">
-      <h2>Book an Appointment</h2>
-      <ul className="hairdresser-list">
+    <div className="book-now p-8">
+      <h2 className="text-2xl font-bold mb-6">Book an Appointment</h2>
+      <ul className="hairdresser-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {hairdressers.map(hairdresser => (
-          <li key={hairdresser._id} className="hairdresser-card">
+          <li key={hairdresser._id} className="hairdresser-card bg-white p-6 rounded-lg shadow-md">
             <div className="hairdresser-details">
-              <h3>{hairdresser.hairdresserName}</h3>
-              <p>{hairdresser.profileDescription}</p> {/* Updated field */}
-              <button onClick={() => handleBookNow(hairdresser)}>Book Now</button>
+              <h3 className="text-xl font-semibold mb-2">{hairdresser.hairdresserName}</h3>
+              <p className="mb-4">{hairdresser.profileDescription}</p> {/* Updated field */}
+              <button 
+                className="bg-[#c77210] text-white py-2 px-4 rounded hover:bg-[#b65d0a] transition-colors"
+                onClick={() => handleBookNow(hairdresser)}
+              >
+                Book Now
+              </button>
             </div>
           </li>
         ))}
       </ul>
 
       {selectedHairdresser && (
-        <div className="availability">
-          <h3>Availability for {selectedHairdresser.hairdresserName}</h3>
-          <div>
-            <label htmlFor="date">Select Date:</label>
+        <div className="availability bg-white p-6 mt-6 rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold mb-4">
+            Availability for {selectedHairdresser.hairdresserName}
+          </h3>
+          <div className="mb-4">
+            <label htmlFor="date" className="block text-sm font-medium mb-1">Select Date:</label>
             <input
               type="date"
               id="date"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
+              className="w-full border rounded p-2"
             />
           </div>
-          <div>
-            <label htmlFor="hour">Select Hour:</label>
+          <div className="mb-4">
+            <label htmlFor="hour" className="block text-sm font-medium mb-1">Select Hour:</label>
             <select
               id="hour"
               value={selectedHour}
               onChange={(e) => setSelectedHour(e.target.value)}
+              className="w-full border rounded p-2"
             >
               <option value="">Select an hour</option>
               {Array.from({ length: 12 }, (_, i) => i + 10).map(hour => (
@@ -97,22 +105,32 @@ const BookNow = ({ user }) => {
               ))}
             </select>
           </div>
-          <div>
-            <label htmlFor="minute">Select Minute:</label>
+          <div className="mb-4">
+            <label htmlFor="minute" className="block text-sm font-medium mb-1">Select Minute:</label>
             <select
               id="minute"
               value={selectedMinute}
               onChange={(e) => setSelectedMinute(e.target.value)}
+              className="w-full border rounded p-2"
             >
               <option value="">Select minutes</option>
               <option value="00">00</option>
               <option value="30">30</option>
             </select>
           </div>
-          <button onClick={handleAppointment} disabled={!selectedDate || !selectedHour || !selectedMinute}>
+          <button 
+            onClick={handleAppointment} 
+            disabled={!selectedDate || !selectedHour || !selectedMinute}
+            className="bg-[#c77210] text-white py-2 px-4 rounded hover:bg-[#b65d0a] transition-colors mr-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
             Book Appointment
           </button>
-          <button className="close-button" onClick={() => setSelectedHairdresser(null)}>Close</button>
+          <button 
+            className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition-colors"
+            onClick={() => setSelectedHairdresser(null)}
+          >
+            Close
+          </button>
         </div>
       )}
     </div>

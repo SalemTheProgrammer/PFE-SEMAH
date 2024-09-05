@@ -105,3 +105,44 @@
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
 }
+/* Header styling */
+header {
+  position: fixed; /* Keeps the header fixed at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Positioned at the top of the page */
+  z-index: 1000; /* Ensures the header is above other elements */
+  background-color: #fff; /* Background color for visibility */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a shadow for depth */
+  padding: 10px 0; /* Adds padding to the header */
+}
+
+/* Add padding to the top of the page content to avoid overlap with the fixed header */
+body {
+  padding-top: 80px; /* Adjust this value based on the height of your header */
+}
+
+/* Main content styling */
+.main-content {
+  margin-top: 20px; /* Adds additional spacing if needed */
+  padding: 20px; /* Adds padding around the content */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Adjust top padding for smaller screens */
+  }
+}
+.proceed-button {
+  background-color: #c77210;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.proceed-button:hover {
+  background-color: #c77210;
+}

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/icoif', {
+        await mongoose.connect('mongodb+srv://root:12345a@cluster0.p6gchpb.mongodb.net/coiff', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });

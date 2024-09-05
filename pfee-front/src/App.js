@@ -4,18 +4,18 @@ import './App.css';
 function App() {
   return (
     <div className="app-container">
-    <div className="relative bg-cover bg-center h-screen" style={{ backgroundImage: `url('/images/company-photo.jpg')` }}>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-bold text-white">Always a Cut Above the Rest</h1>
-        <p className="mt-4 text-xl md:text-2xl text-gray-200 max-w-2xl">
-          Experience the best in hair styling and grooming with our expert team of barbers and stylists.
-        </p>
-        <button className="mt-6 w-48 bg-orange-500 text-white py-2 px-4 rounded-md text-base hover:bg-orange-600 transition duration-200">
-            Book an Appointment
+      <div className="relative bg-cover bg-center h-screen" style={{ backgroundImage: `url('/images/company-photo.jpg')` }}>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-white">Always a Cut Above the Rest</h1>
+          <p className="mt-4 text-xl md:text-2xl text-gray-200 max-w-2xl">
+            Experience the best in hair styling and grooming with our expert team of barbers and stylists.
+          </p>
+          <button className="mt-6 w-48 bg-orange-500 text-white py-2 px-4 rounded-md text-base hover:bg-orange-600 transition duration-200">
+            Get a Haircut Now !
           </button>
+        </div>
       </div>
-    </div>
 
       <div className="services-container py-20 bg-white">
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">Our Services</h2>
@@ -77,12 +77,30 @@ function App() {
         </div>
       </div>
 
-      <div className="contact-container py-20 bg-gray-800 text-white">
-        <h2 className="text-4xl font-bold text-center mb-10">Get in Touch</h2>
-        <div className="flex justify-center">
-          <button className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition duration-200">
-            Book an Appointment
-          </button>
+      <div className="footer-container py-10 bg-gray-800 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
+          <p className="mb-6 text-lg">
+            Have questions or want to book an appointment? We’d love to hear from you!
+          </p>
+          
+
+          <div className="mt-10">
+            <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
+            <p className="text-lg mb-2">
+              <i className="fas fa-phone-alt"></i> <a href="tel:+1234567890" className="hover:underline">+ (216) 52060101</a>
+            </p>
+            <p className="text-lg mb-2">
+              <i className="fas fa-envelope"></i> <a href="mailto:info@icoiff.com" className="hover:underline">iCoiff@gmail.com</a>
+            </p>
+            <p className="text-lg">
+              <i className="fas fa-map-marker-alt"></i> Sidi Daoud la Marsa
+            </p>
+          </div>
+
+          <div className="mt-6">
+            <p className="text-sm">&copy; {new Date().getFullYear()} iCoiff. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </div>
